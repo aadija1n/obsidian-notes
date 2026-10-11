@@ -1,13 +1,13 @@
 <details>
 <summary>Chapter 01 - Introduction to CN</summary>
 
-- [[1.1 Introduction]] <br>
-- Classification of Networks<br>
-- Transmission Modes<br>
-- Data Representation<br>
-- Types of Addresses<br>
-- Networking Devices<br>
-- Network Models<br>
+- Introduction [[1.1 Introduction|↗]] <br>
+- Classification of Networks [[1.2 Classification of Networks|↗]]<br>
+- Transmission Modes [[1.3 Transmission Modes|↗]]<br>
+- Data Representation [[1.4 Data Representation|↗]]<br>
+- Types of Addresses [[1.5 Types of Addresses|↗]] <br>
+- Networking Devices [[1.6 Networking Devices|↗]] <br>
+- Network Models [[1.7 Network Models|↗]] <br>
 
 </details>
 <details>
