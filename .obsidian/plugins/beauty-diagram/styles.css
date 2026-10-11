@@ -1,0 +1,154 @@
+/* Container for one rendered diagram. Stays block-level so the inner
+   <img> gets the row's width to size against (SVGs from /v1/beautify.svg
+   carry only viewBox, no intrinsic width — they need a sized parent). */
+.bd-block {
+  position: relative;
+  margin: 1em 0;
+}
+
+.bd-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Hover-revealed badge that links to the bd editor with source prefilled.
+   Sibling to <img>, NOT wrapping it — keeps "click image = view fullsize"
+   intuition intact and only the badge feels like a link. */
+.bd-edit-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  background: rgba(15, 23, 42, 0.82);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  border-radius: 6px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 120ms ease, transform 120ms ease;
+  pointer-events: none;
+  font-family: var(--font-interface, inherit);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+.bd-block:hover .bd-edit-badge,
+.bd-edit-badge:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bd-edit-badge:hover {
+  background: rgba(15, 23, 42, 0.94);
+  transform: translateY(-1px);
+}
+
+/* Touch devices have no hover — keep badge faintly visible so it's
+   discoverable on iOS/Android Obsidian. */
+@media (hover: none) {
+  .bd-edit-badge {
+    opacity: 0.65;
+    pointer-events: auto;
+  }
+  .bd-edit-badge:active {
+    opacity: 1;
+  }
+}
+
+.bd-error {
+  border: 1px solid var(--background-modifier-error-border, #d44);
+  background: var(--background-modifier-error, rgba(220, 60, 60, 0.06));
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 0.9em;
+}
+
+.bd-error-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.bd-error-message {
+  opacity: 0.85;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+
+.bd-error-actions button {
+  margin-right: 6px;
+}
+
+/* Per-block native-renderer fallback. The badge is a visible-by-default
+ * status indicator (unlike .bd-edit-badge's hover reveal) — a silently
+ * un-beautified diagram would read as "the plugin is broken". */
+.bd-fallback-badge {
+  margin-top: 4px;
+  font-size: 0.78em;
+}
+
+.bd-fallback-toggle {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 2px 6px;
+  cursor: pointer;
+  color: var(--text-warning, #b58a00);
+  opacity: 0.8;
+  font-size: inherit;
+}
+
+.bd-fallback-toggle:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.bd-fallback-info {
+  border-left: 2px solid var(--background-modifier-border, #ccc);
+  margin: 4px 0 0 6px;
+  padding: 4px 8px;
+  color: var(--text-muted, #888);
+}
+
+.bd-fallback-reason {
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+}
+
+/* Hide Beauty Diagram's internal front-matter property rows in Obsidian's
+ * Properties pane. These markers are plugin-managed (written/removed by
+ * the picker / toggle commands) — surfacing them as editable chips in
+ * the Properties UI risks users hand-toggling values, which bypasses the
+ * command's gating + side effects (plan check, embed refresh, share-
+ * token pre-fetch). Same intent as the VS Code extension's previewScript
+ * row suppression.
+ *
+ * Obsidian assigns each property row a `data-property-key` attribute
+ * matching the YAML key, so an attribute-prefix selector hits every
+ * `bd-*` key (current: `bd-share`, `bd-width`; future-proof for new
+ * markers without code changes) in both the inline editing UI and the
+ * read-view Properties section. */
+.metadata-property[data-property-key^="bd-"] {
+  display: none;
+}
+
+/* Generic hide toggle — replaces inline `style.display` assignments
+ * (forbidden by the community plugin guideline no-static-styles-assignment).
+ * Used by the fallback badge's collapsible info panel. */
+.bd-hidden {
+  display: none;
+}
+
+/* Spacing for the free-standing description paragraphs in the settings tab
+ * (the heading-level explanations that aren't attached to a Setting row). */
+.bd-setting-note {
+  margin-bottom: 0.75em;
+}
+
+.bd-setting-note-lg {
+  margin-bottom: 1em;
+}
