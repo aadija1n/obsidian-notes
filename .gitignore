@@ -3,3 +3,5 @@
 .obsidian/cache
 .trash/
 .obsidian/*
+
+/.obsidian/community-plugins.json
