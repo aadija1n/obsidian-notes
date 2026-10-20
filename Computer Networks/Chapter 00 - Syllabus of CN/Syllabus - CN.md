@@ -1,6 +1,6 @@
 <details>
 <summary>Chapter 01 - Introduction to CN</summary>
-
+<br>
 - Introduction <br>
 - Classification of Networks<br>
 - Transmission Modes<br>
@@ -8,7 +8,7 @@
 - Types of Addresses<br>
 - Networking Devices<br>
 - Network Models<br>
-
+<br>
 </details>
 <details>
 <summary>Chapter 02 - Network Models</summary>
