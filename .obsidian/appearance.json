@@ -1,3 +1,5 @@
 {
-  "cssTheme": ""
+  "cssTheme": "",
+  "showViewHeader": true,
+  "showRibbon": true
 }
