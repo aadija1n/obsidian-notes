@@ -40,4 +40,8 @@ So, the points to remember are :
 
 ---
 ### Stack, Heap, and Python Objects
-In python, all objects and data structures live on a private heap, while the stack is used to store frame objects, local variable references, and execution flow. In languages like cpp, java, etc. - variable hold values directly on stack. But in python a variable is 
+In python, all objects and data structures live on a private heap, while the stack is used to store frame objects, local variable references, and execution flow. In languages like cpp, java, etc. - variable hold values directly on stack. But in python a variable inside a stack references or points to a memory location of object residing inside heap.
+
+| Feature | Stack | Heap  |
+| ------- | ----- | ----- |
+|         |       |       |
