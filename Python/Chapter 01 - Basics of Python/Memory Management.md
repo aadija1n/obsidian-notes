@@ -63,6 +63,22 @@ Everything in python is a `PyObject`, which includes a type pointer and referenc
 
 
 ---
+### Integer Caching
+As we discussed earlier, python considers -5 to 256 as small integers, and caches them on startup.
+```python
+a = 256
+b = 256
+print(a is b) # True
+```
+
+but,
+```python
+a = 257
+b = 257
+print(a is b) # False
+```
+
+---
 ### Object Identity
 
 | Expression | Meaning                                                     |
