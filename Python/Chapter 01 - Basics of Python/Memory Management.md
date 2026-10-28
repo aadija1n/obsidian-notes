@@ -47,6 +47,7 @@ In python, all objects and data structures live on a private heap, while the sta
 | What it stores ? | Function call blocks (Frames), references to variables, and execution order. | Every single python object (int, str, class, list, dict, etc).               |
 | Allocation Style | Fast, Linear, Contiguous memory blocks.                                      | Dynamic, non-contiguous blocks managed by interpreter.                       |
 | Lifecycle        | Automatically managed via function entries and exits (LIFO)                  | Managed by `pymalloc` allocator, reference counting, and garbage collection. |
+
 When we execute code like `x = 100`, python creates an integer object (100) on the heap, a reference named x is created in the current function's stack frame on the stack, pointing directly to memory address of `100` on the heap.
 
 To bypass slow OS-level allocation (`malloc`), python uses a specialized memory manager called `pymalloc`. It breaks down memory into highly structured hierarchy :
