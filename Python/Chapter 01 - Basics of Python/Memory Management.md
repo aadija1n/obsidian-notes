@@ -88,6 +88,45 @@ But when using Interactive mode like REPL or Notebooks,
 
 This happens because 257 is out of caching range, but in script mode the whole script goes as once, and the compiler optimizes the code as it sees that `257` is twice in the code. But in the case of interactive mode, each line is compiled independently, that is why cache out of range occurs.
 
+Same is the case with float values, but none is cached so all scenarios will return false in interactive mode and true in script mode.
+```python
+a = 1.7
+b = 1.7
+print(a is b) # True
+```
+```python
+>>> a = 1.7
+>>> b = 1.7
+>>> a is b
+>>> False
+```
+
+But in the case of string it returns true in both modes,
+```python
+a = "hello"
+b = "hello"
+print(a is b) # true
+```
+```python
+>>> a = "hello"
+>>> b = "hello"
+>>> a is b
+>>> True
+```
+
+and for mutable object like lists, dict, set, etc it always returns false in both modes.
+```python
+a = [1,2,3]
+b = [1,2,3]
+print(a is b) # False
+```
+```python
+>>> a = [1,2,3]
+>>> b = [1,2,3]
+>>> a is b
+>>> False
+```
+
 ---
 ### Object Identity
 
