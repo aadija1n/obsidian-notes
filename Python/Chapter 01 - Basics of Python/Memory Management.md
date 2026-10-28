@@ -74,4 +74,11 @@ Lets understand with an example :
 ```python
 a = [1, 2]
 b = [1, 2]
+c = a
+
+print(a == b) # returns True
+print(a is b) # returns False
+print(a is c) # returns True
 ```
+
+although a and b have similar content but they refer to different objects - Note that mutable object like lists, dictionaries, etc - for all o
