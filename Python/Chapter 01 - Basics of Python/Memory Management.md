@@ -42,7 +42,9 @@ So, the points to remember are :
 ### Stack, Heap, and Python Objects
 In python, all objects and data structures live on a private heap, while the stack is used to store frame objects, local variable references, and execution flow. In languages like cpp, java, etc. - variable hold values directly on stack. But in python a variable inside a stack references or points to a memory location of object residing inside heap.
 
-| Feature          | Stack                                                                        | Heap (private)                                                 |
-| ---------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| What it stores ? | Function call blocks (Frames), references to variables, and execution order. | Every single python object (int, str, class, list, dict, etc). |
-| Allocation Style | Fast, Linear, Contiguous memory blocks.                                      | Dynamic, non-contiguous blocks managed by                      |
+| Feature          | Stack                                                                        | Heap (private)                                                               |
+| ---------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| What it stores ? | Function call blocks (Frames), references to variables, and execution order. | Every single python object (int, str, class, list, dict, etc).               |
+| Allocation Style | Fast, Linear, Contiguous memory blocks.                                      | Dynamic, non-contiguous blocks managed by interpreter.                       |
+| Lifecycle        | Automatically managed via function entries and exits (LIFO)                  | Managed by `pymalloc` allocator, reference counting, and garbage collection. |
+When we execute code like `x = 100`, python creates an integer object ()
