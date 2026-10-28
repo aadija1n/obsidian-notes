@@ -71,12 +71,22 @@ b = 256
 print(a is b) # True
 ```
 
-but,
+Also,
 ```python
 a = 257
 b = 257
-print(a is b) # False
+print(a is b) # True
 ```
+
+But when using Interactive mode like REPL or Notebooks,
+```python
+>>> a = 257
+>>> b = 257
+>>> a is b
+>>> False
+```
+
+This happens because 257 is out of caching range, but in script mode the whole script goes as once, and the compiler optimizes the code as it sees that `257` is twice in the code. But in the case of interactive mode, each line is compiled independently, that is why cache out of range occurs.
 
 ---
 ### Object Identity
