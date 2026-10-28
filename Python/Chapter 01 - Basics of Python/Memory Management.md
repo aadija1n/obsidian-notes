@@ -91,3 +91,4 @@ print(a==b) # true
 print(a is b) # generally true for CPython
 ```
 
+In this case as `10` is an immutable object and already loaded at python startup, a and b refer to same object.
