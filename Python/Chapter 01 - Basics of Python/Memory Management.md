@@ -57,4 +57,5 @@ To bypass slow OS-level allocation (`malloc`), python uses a specialized memory 
 	- if an object is > 512 Bytes : python skips `pymalloc` and hands over the allocation to system's raw standard C allocator (`malloc`).
 
 Everything in python is a `PyObject`, which includes a type pointer and reference count. However the python memory manager uses specific strategies :
-- 
+- **Small integers & Booleans** ; python pre-allocates integers from `-5` to `256` at startup. that means when you assign `y = 10`, python does not allocate new heap memory. It references the pre-existing, static memory address for `10`, this is called **Integer Interning**.
+- **Strings** : Short, compile-time 
