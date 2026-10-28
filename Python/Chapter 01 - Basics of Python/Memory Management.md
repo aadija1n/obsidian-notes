@@ -50,4 +50,6 @@ In python, all objects and data structures live on a private heap, while the sta
 When we execute code like `x = 100`, python creates an integer object (100) on the heap, a reference named x is created in the current function's stack frame on the stack, pointing directly to memory address of `100` on the heap.
 
 To bypass slow OS-level allocation (`malloc`), python uses a specialized memory manager called `pymalloc`. It breaks down memory into highly structured hierarchy :
-- **Arenas (256 KB / 1 MB)** : the largest chunks of memory requested directly from the OS. These arenas consists 
+- **Arenas (256 KB / 1 MB)** : the largest chunks of memory requested directly from the OS. These arenas consists of pools.
+- **Pools (4 KB)** : a pool is a 4 KB block composed of uniform blocks. all blocks inside a pool are of same size.
+- **Blocks** : The actual slots where objects are stored, `pymalloc` divides blocks into 64 different size classes (e.g 8 Bytes, )
