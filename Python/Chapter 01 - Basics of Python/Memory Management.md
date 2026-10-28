@@ -59,4 +59,8 @@ To bypass slow OS-level allocation (`malloc`), python uses a specialized memory 
 Everything in python is a `PyObject`, which includes a type pointer and reference count. However the python memory manager uses specific strategies :
 - **Small integers & Booleans** ; python pre-allocates integers from `-5` to `256` at startup. that means when you assign `y = 10`, python does not allocate new heap memory. It references the pre-existing, static memory address for `10`.
 - **Strings** : Short, compile-time strings (like variable names or dictionary keys) are optimized via string interning, ensuring unique strings share a single heap address to save space.
-- **List & Tuples** : a list object on the heap is essentially an array
+- **List & Tuples** : a list object on the heap is essentially an *array of pointers* to other heap objects. when python list grows, python over-allocates extra slot spaces dynamically to ensure appending items do not trigger a heavy reallocation cycle every time.
+
+
+---
+### 
