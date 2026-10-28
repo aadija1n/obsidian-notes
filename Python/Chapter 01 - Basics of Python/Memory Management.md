@@ -63,4 +63,8 @@ Everything in python is a `PyObject`, which includes a type pointer and referenc
 
 
 ---
-### 
+### Object Identity
+
+| Expression | Meaning                                |
+| ---------- | -------------------------------------- |
+| `a == b`   | Tests whether value of a and b is same |
