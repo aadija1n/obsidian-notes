@@ -64,7 +64,7 @@ Everything in python is a `PyObject`, which includes a type pointer and referenc
 
 ---
 ### Integer Caching
-As we discussed earlier, python considers -5 to 256 as small integers, and caches them on startup.
+As we discussed earlier, python considers -5 to 256 as small integers (for standard CPython), and caches them on startup.
 ```python
 a = 256
 b = 256
