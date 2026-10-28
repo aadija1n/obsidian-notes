@@ -81,4 +81,4 @@ print(a is b) # returns False
 print(a is c) # returns True
 ```
 
-although a and b have similar content but they refer to different objects - Note that mutable object like lists, dictionaries, etc - for all o
+although a and b have similar content but they refer to different objects - Note that mutable object like lists, dictionaries, etc - for all of them new object is created, while for immutable objects like int, str, etc - multiples names points to same object because it is immutable and not going to be changed. But in case of `c = a`, c is refered to same object as that of a.
