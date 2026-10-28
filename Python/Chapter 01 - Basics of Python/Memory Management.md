@@ -52,4 +52,6 @@ When we execute code like `x = 100`, python creates an integer object (100) on t
 To bypass slow OS-level allocation (`malloc`), python uses a specialized memory manager called `pymalloc`. It breaks down memory into highly structured hierarchy :
 - **Arenas (256 KB / 1 MB)** : the largest chunks of memory requested directly from the OS. These arenas consists of pools.
 - **Pools (4 KB)** : a pool is a 4 KB block composed of uniform blocks. all blocks inside a pool are of same size.
-- **Blocks** : The actual slots where objects are stored, `pymalloc` divides blocks into 64 different size classes (e.g 8 Bytes, )
+- **Blocks** : The actual slots where objects are stored, `pymalloc` divides blocks into 64 different size classes (e.g 8 Bytes, 16 Bytes, up to 512 Bytes).
+	- If an object is <= 512 Bytes : `pymalloc` handles it from matching size-class pool.
+	- if an object is > 512 Bytes : python skips `pymalloc` and hands over the allocation to system's raw standard C allocator (``)
