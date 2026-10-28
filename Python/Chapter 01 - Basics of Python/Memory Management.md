@@ -40,7 +40,4 @@ So, the points to remember are :
 
 ---
 ### Stack, Heap, and Python Objects
-Conceptually, python execution involves :
-- **Call Stack / Execution Frames** : maintain function execution state, including local name binding and references.
-- **Heap-Allocated objects** : objects such as lists, dictionaries, and integers are typically allocated in heap memory.
-- **References** : names and containers can hold references to objects rather than containing complete value directly.
+In python, all objects and data structures live on a private heap, while the stack is used to store frame objects, local variable references, and execution flow. In languages like cpp, java, etc. - variable hold values directly on stack. But in python a variable is 
