@@ -1,2 +1,0 @@
-resource - system design primier
-
