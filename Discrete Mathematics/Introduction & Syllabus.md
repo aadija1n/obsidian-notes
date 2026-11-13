@@ -15,3 +15,8 @@ Discrete mathematics is foundation of computer science because, computers works 
 
 >**Note** : computer can work with continuous values but by using discrete encoding.
 
+We can further divide discrete math into :
+- Logic
+- Combinatorics
+- Set & Group theory
+- Graph Theory
